@@ -1,0 +1,194 @@
+.about-page {
+    padding-bottom: 4rem;
+    color: #1a2a5e;
+}
+
+.about-hero {
+    background-color: #f4f4f4;
+    padding: 6rem 1rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #555;
+    font-weight: 400;
+}
+
+.about-mission {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+}
+
+.about-mission h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-mission p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+.about-transparency {
+    background-color: #1a2a5e;
+    color: white;
+    padding: 5rem 1rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.about-transparency h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-desc {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+}
+
+.cost-breakdown-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cost-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+}
+
+.cost-card:hover {
+    transform: translateY(-5px);
+}
+
+.cost-card.highlight {
+    background: white;
+    color: #1a2a5e;
+    border: 2px solid #e74c3c;
+}
+
+.icon-wrapper {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    color: #e74c3c;
+}
+
+.cost-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.cost-card .price {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.cost-card .details {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.cost-card.highlight .details {
+    opacity: 1;
+    color: #555;
+}
+
+.about-manufacturing {
+    margin-bottom: 4rem;
+}
+
+.manufacturing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.manufacturing-text {
+    padding-right: 2rem;
+}
+
+.manufacturing-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.manufacturing-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+.manufacturing-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-cta {
+    text-align: center;
+    padding: 4rem 1rem;
+    background-color: #f9f9f9;
+}
+
+.about-cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-cta p {
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.btn-shop {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: #1a2a5e;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-shop:hover {
+    background-color: #2c4485;
+}
+
+@media (max-width: 768px) {
+    .manufacturing-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .manufacturing-text {
+        padding-right: 0;
+        text-align: center;
+    }
+    .hero-title {
+        font-size: 2.2rem;
+    }
+}

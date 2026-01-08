@@ -1,0 +1,56 @@
+/* Global Animations */
+
+.reveal {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    will-change: opacity, transform;
+}
+
+.reveal.visible {
+    opacity: 1;
+}
+
+/* 1. Fade Up Effect (Default) */
+.reveal.fade-up {
+    transform: translateY(30px);
+}
+
+.reveal.fade-up.visible {
+    transform: translateY(0);
+}
+
+/* 2. Fade In Effect */
+.reveal.fade-in {
+    opacity: 0;
+}
+
+.reveal.fade-in.visible {
+    opacity: 1;
+}
+
+/* 3. Scale Up Effect */
+.reveal.scale-up {
+    transform: scale(0.95);
+}
+
+.reveal.scale-up.visible {
+    transform: scale(1);
+}
+
+/* 4. Slide Right */
+.reveal.slide-right {
+    transform: translateX(-30px);
+}
+
+.reveal.slide-right.visible {
+    transform: translateX(0);
+}
+
+/* 5. Slide Left */
+.reveal.slide-left {
+    transform: translateX(30px);
+}
+
+.reveal.slide-left.visible {
+    transform: translateX(0);
+}

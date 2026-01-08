@@ -1,0 +1,150 @@
+.product-card {
+    display: block;
+    position: relative;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    background-color: #f7f7f7;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.08);
+    /* Subtle zoom */
+}
+
+/* Wishlist Button */
+.wishlist-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    /* Hidden by default */
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.wishlist-btn:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.product-card:hover .wishlist-btn {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Badges */
+.card-overlays {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.discount-badge {
+    background-color: #d00;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 2px;
+}
+
+/* Quick Add Button */
+.quick-add-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid var(--color-primary);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.quick-add-btn:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.product-card:hover .quick-add-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Product Info */
+.product-info {
+    padding: 12px 0;
+}
+
+.product-title {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product-category {
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.current-price {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1rem;
+}
+
+.original-price {
+    font-size: 0.85rem;
+    color: #999;
+    text-decoration: line-through;
+}
