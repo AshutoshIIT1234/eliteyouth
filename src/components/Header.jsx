@@ -69,9 +69,10 @@ const MEGA_MENU_DATA = {
 const Header = () => {
   const { cartCount } = useCart();
   const { user, logout } = useAuth(); // Use useAuth
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
 
-  // Removed local state userInfo and logoutHandler in favor of AuthContext
+  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   return (
     <>
@@ -100,7 +101,7 @@ const Header = () => {
       {/* Main Header */}
       <header className="header">
         <div className="container header-content">
-          <button className="mobile-menu-btn"><Menu size={24} /></button>
+          <button className="mobile-menu-btn" onClick={toggleMobileMenu}><Menu size={24} /></button>
 
           <Link to="/" className="logo">ELITE YOUTH</Link>
 
@@ -115,7 +116,7 @@ const Header = () => {
               >
                 <Link to={`/category/${category}`} className="nav-link">
                   {category.toUpperCase()}
-
+                  <ChevronDown size={14} className="chevron" />
                 </Link>
 
                 {/* Mega Menu Dropdown */}
@@ -147,8 +148,6 @@ const Header = () => {
                 )}
               </div>
             ))}
-
-
           </nav>
 
           <div className="header-actions">
@@ -169,6 +168,58 @@ const Header = () => {
           </div>
         </div>
       </header>
+
+      {/* Mobile Menu Drawer */}
+      <div className={`mobile-nav-overlay ${mobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}></div>
+      <div className={`mobile-nav-drawer ${mobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-nav-header">
+          <h3>Menu</h3>
+          <button className="close-menu-btn" onClick={toggleMobileMenu}>&times;</button>
+        </div>
+        <div className="mobile-nav-content">
+          {['men', 'winter', 'sale'].map((category) => (
+            <div key={category} className="mobile-nav-item">
+              <h4 onClick={(e) => {
+                // Creating a simple accordion effect
+                e.target.nextElementSibling.classList.toggle('open');
+                e.target.classList.toggle('active');
+              }}>
+                {category.toUpperCase()} <ChevronDown size={16} />
+              </h4>
+              <div className="mobile-sub-menu">
+                {MEGA_MENU_DATA[category] && MEGA_MENU_DATA[category].columns.map((col, idx) => (
+                  <div key={idx} className="mobile-sub-group">
+                    <h5>{col.title}</h5>
+                    <ul>
+                      {col.items.map((item, i) => (
+                        <li key={i}><Link to={`/category/${category}/${item.toLowerCase().replace(' ', '-')}`} onClick={toggleMobileMenu}>{item}</Link></li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+          <div className="mobile-nav-utilities" style={{ padding: '0 20px', borderBottom: '1px solid #f0f0f0' }}>
+            <Link to="/wishlist" className="mobile-nav-item-link" onClick={toggleMobileMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '15px 0', textDecoration: 'none', color: '#333', borderBottom: '1px solid #f0f0f0' }}>
+              <Heart size={18} /> Wishlist
+            </Link>
+            <Link to="/track-order" className="mobile-nav-item-link" onClick={toggleMobileMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '15px 0', textDecoration: 'none', color: '#333', borderBottom: '1px solid #f0f0f0' }}>
+              <Truck size={18} /> Track Order
+            </Link>
+            <Link to="/stores" className="mobile-nav-item-link" onClick={toggleMobileMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '15px 0', textDecoration: 'none', color: '#333' }}>
+              <MapPin size={18} /> Our Stores
+            </Link>
+          </div>
+          <div className="mobile-nav-auth">
+            {user ? (
+              <button onClick={() => { logout(); toggleMobileMenu(); }} className="btn-mobile-auth">Logout</button>
+            ) : (
+              <Link to="/login" className="btn-mobile-auth" onClick={toggleMobileMenu}>Login / Signup</Link>
+            )}
+          </div>
+        </div>
+      </div>
     </>
   );
 };
