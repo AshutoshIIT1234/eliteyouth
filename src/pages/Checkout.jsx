@@ -39,7 +39,7 @@ const Checkout = () => {
 
         try {
             // 1. Create Order on Backend
-            const { data: order } = await axios.post('http://localhost:5000/api/payment/create-order', {
+            const { data: order } = await axios.post(`${import.meta.env.VITE_API_URL}/api/payment/create-order`, {
                 amount: cartTotal,
                 currency: 'INR'
             });
@@ -55,7 +55,7 @@ const Checkout = () => {
                 handler: async function (response) {
                     try {
                         // 2. Verify Payment on Backend
-                        const verifyData = await axios.post('http://localhost:5000/api/payment/verify', {
+                        const verifyData = await axios.post(`${import.meta.env.VITE_API_URL}/api/payment/verify`, {
                             razorpay_order_id: response.razorpay_order_id,
                             razorpay_payment_id: response.razorpay_payment_id,
                             razorpay_signature: response.razorpay_signature,

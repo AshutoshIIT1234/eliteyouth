@@ -16,7 +16,7 @@ const CategoryList = () => {
     }, []);
 
     const fetchCategories = async () => {
-        const res = await fetch('http://localhost:5000/api/categories');
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/categories`);
         const data = await res.json();
         setCategories(data);
     };
@@ -24,7 +24,7 @@ const CategoryList = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch('http://localhost:5000/api/categories', {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/categories`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const CategoryList = () => {
     const deleteHandler = async (id) => {
         if (window.confirm('Are you sure?')) {
             try {
-                const res = await fetch(`http://localhost:5000/api/categories/${id}`, {
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/api/categories/${id}`, {
                     method: 'DELETE',
                     headers: {
                         Authorization: `Bearer ${user.token}`,

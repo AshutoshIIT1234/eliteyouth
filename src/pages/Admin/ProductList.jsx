@@ -14,7 +14,7 @@ const ProductList = () => {
     }, []);
 
     const fetchProducts = async () => {
-        const res = await fetch('http://localhost:5000/api/products');
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/products`);
         const data = await res.json();
         setProducts(data);
     };
@@ -22,7 +22,7 @@ const ProductList = () => {
     const deleteHandler = async (id) => {
         if (window.confirm('Are you sure?')) {
             try {
-                const res = await fetch(`http://localhost:5000/api/products/${id}`, {
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/api/products/${id}`, {
                     method: 'DELETE',
                     headers: {
                         Authorization: `Bearer ${user.token}`,

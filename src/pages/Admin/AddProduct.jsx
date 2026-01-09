@@ -23,7 +23,7 @@ const AddProduct = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/categories');
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/api/categories`);
                 const data = await res.json();
                 setCategories(data);
             } catch (error) {
@@ -46,7 +46,7 @@ const AddProduct = () => {
                 },
             };
 
-            const response = await fetch('http://localhost:5000/api/upload', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/upload`, {
                 method: 'POST',
                 body: formData,
             });
@@ -64,7 +64,7 @@ const AddProduct = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch('http://localhost:5000/api/products', {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/products`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
