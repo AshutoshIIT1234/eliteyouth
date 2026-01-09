@@ -14,6 +14,15 @@
     background-color: #f3f4f6;
 }
 
+@media (max-width: 991px) {
+    .admin-content {
+        margin-left: 0;
+        padding: 20px;
+        padding-top: 60px;
+        /* Space for toggle button */
+    }
+}
+
 /* Dashboard Cards */
 .dashboard-cards {
     display: grid;
